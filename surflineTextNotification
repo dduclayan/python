@@ -1,0 +1,55 @@
+# TODO: Have program check waves for west side and send a text if waves are good or excellent
+# Also have program text user if waves are in user's optimal range E.g. 3-4 feet
+# Also have program text if the forecast for tomorrow looks good
+
+
+# Twilio API for sms messaging
+from twilio.rest import Client
+client = Client("**********", "**********")
+
+import bs4, requests
+
+# Retrieve Haleiwa surfline report via requests
+url = 'https://www.surfline.com/surf-report/haleiwa/5842041f4e65fad6a7708df5'
+getPage = requests.get(url)
+getPage.raise_for_status()
+
+# Parses surfline html page, assigns to variable surf
+surf = bs4.BeautifulSoup(getPage.text, 'html.parser')
+forecast = surf.select('.sl-spot-report') # text that says if waves are good or excellent is in div class sl-spot-report
+
+# Variables for "good" and "excellent" waves
+gHeight = 'good'
+eHeight = 'excellent'
+gLength = len(gHeight)
+eLength = len(eHeight)
+gAvailable = False
+eAvailable = False 
+
+# for loop that iterates over text, looks for text that matches good or excellent, if so changes available variable to True.
+for wave in forecast:
+	for i in range(len(wave.text)):
+		chunk = wave.text[i:i+gLength].lower()
+		if chunk == gHeight:
+			gAvailable = True
+for wave in forecast:
+	for i in range(len(wave.text)):
+		chunk = wave.text[i:i+eLength].lower()
+		if chunk == eHeight:
+			eAvailable = True
+
+# Send SMS
+if gAvailable or eAvailable == True:
+        client.messages.create(to="+19999999999",
+                       from_="+19999999999", 
+                       body="North shore waves are good/excellent! Go out and surf/shell! Visit https://www.surfline.com/surf-report/haleiwa/5842041f4e65fad6a7708df5 for more info.")
+        client.messages.create(to="+19999999999",
+                       from_="+19999999999", 
+                       body="North shore waves are good! Go out and surf/shell! Visit https://www.surfline.com/surf-report/haleiwa/5842041f4e65fad6a7708df5 for more info.")
+else:
+	print('Waves are junk today.')
+
+
+
+
+
