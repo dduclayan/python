@@ -1,6 +1,6 @@
 # TODO: Have program check waves for west side and send a text if waves are good or excellent
 # Also have program text user if waves are in user's optimal range E.g. 3-4 feet
-# Also have program text if the forecast for tomorrow looks good
+# Also have program text if the forecast for tomorrow looks good = DONE
 
 
 # Twilio API for sms messaging
