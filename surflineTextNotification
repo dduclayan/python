@@ -19,6 +19,8 @@ surf = bs4.BeautifulSoup(getPage.text, 'html.parser')
 forecast = surf.select('.sl-spot-report') # text that says if waves are good or excellent is in div class sl-spot-report
 
 # Variables for "good" and "excellent" waves
+# TODO: Need to make the script so that it matches the text exactly, not just by len of word. Reason being is because 'good' is 
+# just as long as 'fair' or 'poor'. As of current state this tool is only good for finding 'excellent' days. 
 gHeight = 'good'
 eHeight = 'excellent'
 gLength = len(gHeight)
