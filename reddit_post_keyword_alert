@@ -59,11 +59,6 @@ def discord_notify(url, post_name, reddit_url):
         "title": "Zastava m70 notification",
         "fields": [
             {
-                "name": "user requesting to be alerted",
-                "value": "<username>@",
-                "inline": True,
-            },
-            {
                 "name": "post",
                 "value": post_name,
                 "inline": True,
