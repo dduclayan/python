@@ -66,7 +66,7 @@ def search_posts_for_keyword(subreddit_name, search_term):
             found_at_least_one_post = True
             discord_notify(url, title, reddit_url)
       
-    if success_counter == 0:
+    if found_at_least_one_post == False:
         print('Nothing found!')
             
     
