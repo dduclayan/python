@@ -1,8 +1,10 @@
 """
-Created on Mon Aug  9 13:39:38 2021
-
 This script will scrape hot submissions in a subreddit you choose and alert you via discord webhook
 if a submission with your keyword is found in the post title.
+
+What you need for this script to run:
+1. A reddit api client_id and client_secret. How-to: https://tinyurl.com/j4m4nusj
+2. A discord server and webhook url. How-to: https://tinyurl.com/2csat5ps
 
 API LIMITS!!!
 60 requests per min
