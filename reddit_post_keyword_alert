@@ -19,15 +19,15 @@ import requests
 def authenticate():
     try:
         print('Authenticating...')
-        # TODO: troubleshoot why praw.ini isn't working
+        # creates an instance of the 'Reddit' class so you can do stuff with reddit posts
         reddit = praw.Reddit(client_id = 'xxx',
                               client_secret = 'xxx',
                               user_agent = '<platform>:<script_name>:<version>')
         if reddit.read_only:
-            print('Authentication Succesful!')
+            print('Authentication successful!')
             return reddit
         else:
-            print('Authentication not succesful.')
+            print('Authentication not successful.')
     except:
         print('An error occurred.')
         raise 
