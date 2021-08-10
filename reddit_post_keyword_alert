@@ -53,7 +53,7 @@ def search_posts_for_keyword(subreddit_name, search_term):
     """
     instance = authenticate()
     sub = instance.subreddit(subreddit_name)
-    success_counter = 0
+    found_at_least_one_post = False
 
     for submission in sub.hot(limit=100):
         title = submission.title.lower()
@@ -63,7 +63,7 @@ def search_posts_for_keyword(subreddit_name, search_term):
         if search_term in title:
             print(f'Success! Found {title}')
             print(f'{reddit_url}')
-            success_counter += 1
+            found_at_least_one_post = True
             discord_notify(url, title, reddit_url)
       
     if success_counter == 0:
