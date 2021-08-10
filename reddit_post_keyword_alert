@@ -32,6 +32,23 @@ def authenticate():
 
 
 def search_posts_for_keyword(subreddit_name, search_term):
+    """
+
+
+    Parameters
+    ----------
+    subreddit_name : string
+        Name of the subreddit you want to search.
+        e.g. http://reddit.com/gundeals
+        The subreddit would be 'gundeals'.
+    search_term : string
+        e.g. "glock19"
+
+    Returns
+    -------
+    A notification via discord webhook.
+
+    """
     instance = authenticate()
     sub = instance.subreddit(subreddit_name)
     success_counter = 0
