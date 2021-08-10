@@ -48,7 +48,7 @@ def search_posts_for_keyword(subreddit_name, search_term):
 
     Returns
     -------
-    A notification via discord webhook.
+    A notification via discord webhook if keyword is found in post.
 
     """
     instance = authenticate()
