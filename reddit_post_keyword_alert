@@ -46,8 +46,7 @@ def search_posts_for_keyword(subreddit_name, search_term):
             print(f'{reddit_url}')
             success_counter += 1
             discord_notify(url, title, reddit_url)
-        else:
-            pass
+      
     if success_counter == 0:
         print('Nothing found!')
             
