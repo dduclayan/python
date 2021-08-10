@@ -118,7 +118,6 @@ def discord_notify(url, post_name, reddit_url):
 
 
 def main():
-    # search_posts_for_keyword('subreddit', 'search term')
     search_posts_for_keyword('gundeals', 'm70')
 
 
